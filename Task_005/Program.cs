@@ -1,5 +1,5 @@
 ﻿Console.WriteLine("Введите число");
-int numb = int.Parse(Console.ReadLine()??"");
+int numb = int.Parse(Console.ReadLine() ?? "");
 int[] numbers = new int[0];
 
 void CorrectNumbers()
@@ -7,10 +7,10 @@ void CorrectNumbers()
     int count = 0;
     for (int a = numb; a > 0;)
     {
-        a = a/10;
+        a = a / 10;
         count++;
     }
-    numbers = new int [count];
+    numbers = new int[count];
 }
 
 void FillNumbers()
@@ -18,8 +18,8 @@ void FillNumbers()
     int a = numb;
     for (int i = 0; i < numbers.Length; i++)
     {
-        numbers[i] = a%10;
-        a = a/10;
+        numbers[i] = a % 10;
+        a = a / 10;
     }
 }
 
@@ -28,7 +28,7 @@ void SumNumbers()
 {
     for (int i = 0; i < numbers.Length; i++)
     {
-        sum = numbers[i]+sum;
+        sum = numbers[i] + sum;
     }
 }
 
