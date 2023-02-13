@@ -1,5 +1,5 @@
 ﻿Console.WriteLine("Введите с какого значения показать числовой ряд");
-int a = int.Parse(Console.ReadLine()??"");
+int a = int.Parse(Console.ReadLine() ?? "");
 int[] numbers = Enumerable.Range(1, a).ToArray();
 Array.Reverse(numbers);
 void PrintNumbers(int[] numbers)
