@@ -37,7 +37,7 @@ void PrintNumbers(int[] numbers)
 void SumNumbers(int[] numbers)
 {
     c = 0;
-    for (int i =0; i < numbers.Length; i++)
+    for (int i = 0; i < numbers.Length; i++)
     {
         c = numbers[i] + c;
     }
