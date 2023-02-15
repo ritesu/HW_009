@@ -1,21 +1,17 @@
 ﻿Console.WriteLine("Введите с какого значения показать числовой ряд");
-int a = int.Parse(Console.ReadLine() ?? "");
-int[] numbers = Enumerable.Range(1, a).ToArray();
-Array.Reverse(numbers);
-void PrintNumbers(int[] numbers)
+int a = 1;
+int b = int.Parse(Console.ReadLine() ?? "");
+
+string NumbersLength(int b, int a)
 {
-    foreach (int i in numbers)
+    if (b >= a)
     {
-        if (i == 1)
-        {
-            Console.Write($"{i}.");
-        }
-        else
-        {
-            Console.Write($"{i}, ");
-        }
+        return $"{b} " + NumbersLength(b-1, a);
     }
-    Console.WriteLine();
+    else
+    {
+        return String.Empty;
+    }
 }
 
-PrintNumbers(numbers);
+Console.WriteLine(NumbersLength(b, a));
