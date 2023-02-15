@@ -2,14 +2,16 @@
 int a = int.Parse(Console.ReadLine() ?? "");
 Console.WriteLine("Введите степень");
 int b = int.Parse(Console.ReadLine() ?? "");
-int result = a;
 
-void Result()
+int Result(int a, int b)
 {
-    for (int i = 1; i < b; i++)
+    if (b == 0)
     {
-        result = result * a;
+        return 1;
+    }
+    else
+    {
+        return Result(a, b - 1) * a;
     }
 }
-Result();
-Console.WriteLine($"Число {a} возведенное в степень {b} равно {result}");
+Console.WriteLine($"Число {a} возведенное в степень {b} равна {Result(a, b)}");
