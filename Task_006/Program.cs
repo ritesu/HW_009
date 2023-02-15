@@ -17,5 +17,4 @@ int A(int n, int m)
     }
     return A(n, m);
 }
-A(n, m);
 Console.WriteLine($"Значение функции Аккермана равна {A(n, m)}");
