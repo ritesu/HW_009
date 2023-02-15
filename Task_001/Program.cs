@@ -1,20 +1,16 @@
 ﻿Console.WriteLine("Укажите последнее значение числового ряда");
-int a = int.Parse(Console.ReadLine() ?? "");
-int[] numbers = Enumerable.Range(1, a).ToArray();
-void PrintNumbers(int[] numbers)
-{
-    foreach (int i in numbers)
-    {
-        if (i == a)
-        {
-            Console.Write($"{i}.");
-        }
-        else
-        {
-            Console.Write($"{i}, ");
-        }
-    }
-    Console.WriteLine();
-}
+int a = 1;
+int b = int.Parse(Console.ReadLine() ?? "");
 
-PrintNumbers(numbers);
+string NumbersLength(int a, int b)
+{
+    if (a < b)
+    {
+        return $"{a} " + NumbersLength(a+1, b);
+    }
+    else
+    {
+        return String.Empty;
+    }
+}
+Console.WriteLine(NumbersLength(a, b));
