@@ -2,34 +2,19 @@
 int a = int.Parse(Console.ReadLine() ?? "");
 Console.WriteLine("Введите значение числа, с которого начинать отсчет");
 int numb = int.Parse(Console.ReadLine() ?? "");
-int[] numbers = new int[a];
-int end = numbers.Length - 1;
+int b = 0;
 
-void FillNumbers()
+string NumbersLength(int a, int numb)
 {
-    numbers[0] = numb;
-    numbers[1] = numb + 1;
-    int b = numb + 1;
-    for (int i = 2; i < a; i++)
+    if (b < a)
     {
-        numbers[i] = numbers[i - 2] + numbers[i - 1];
-
+        b++;
+        return $"{numb} " + NumbersLength(a, numb+1);
+    }
+    else
+    {
+        return String.Empty;
     }
 }
 
-void PrintNumbers()
-{
-    for (int i = 0; i < numbers.Length; i++)
-    {
-        if (i == numbers.Length - 1)
-        {
-            Console.Write($"{numbers[i]}.");
-        }
-        else
-        {
-            Console.Write($"{numbers[i]}, ");
-        }
-    }
-}
-FillNumbers();
-PrintNumbers();
+Console.WriteLine(NumbersLength(a,numb));
