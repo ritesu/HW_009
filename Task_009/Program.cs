@@ -3,33 +3,20 @@ int a = int.Parse(Console.ReadLine() ?? "");
 int b = int.Parse(Console.ReadLine() ?? "");
 Console.WriteLine("Введите количество чисел, которое нужно отобразить");
 int numb = int.Parse(Console.ReadLine() ?? "");
-int[] numbers = new int[numb];
-void MathNumbers()
+int step = b - a;
+int temp = 0;
+
+string NumbersLength(int a, int numb)
 {
-    numbers[0] = a;
-    numbers[1] = b;
-    int temp = b - a;
-    for (int i = 2; i < numbers.Length; i++)
+    if (temp < numb)
     {
-        numbers[i] = numbers[i - 1] + temp;
+        temp++;
+        return $"{a} " + NumbersLength(a + step, numb);
+    }
+    else
+    {
+        return String.Empty;
     }
 }
 
-void PrintResult()
-{
-    for (int i = 0; i < numbers.Length; i++)
-    {
-        if (i == numbers.Length - 1)
-        {
-            Console.Write($"{numbers[i]}.");
-        }
-        else
-        {
-            Console.Write($"{numbers[i]}, ");
-        }
-    }
-}
-
-MathNumbers();
-PrintResult();
-
+Console.WriteLine(NumbersLength(a, numb));
