@@ -1,37 +1,17 @@
 ﻿Console.WriteLine("Введите начальное и конечное значения числового ряда");
 int a = int.Parse(Console.ReadLine() ?? "");
 int b = int.Parse(Console.ReadLine() ?? "");
-int c = b - a + 1;
-int[] numbers = new int[c];
 
-void FillNumbers(int[] numbers)
+string NumbersLength(int a, int b)
 {
-    for (int i = 0; i < numbers.Length; i++)
+    if (a <= b)
     {
-        numbers[i] = a;
-        a++;
-        if (a > b)
-        {
-            break;
-        }
+        return $"{a} " + NumbersLength(a+1, b);
+    }
+    else
+    {
+        return String.Empty;
     }
 }
 
-void PrintNumbers(int[] numbers)
-{
-    foreach (int i in numbers)
-    {
-        if (i == b)
-        {
-            Console.Write($"{i}.");
-        }
-        else
-        {
-            Console.Write($"{i}, ");
-        }
-    }
-    Console.WriteLine();
-}
-
-FillNumbers(numbers);
-PrintNumbers(numbers);
+Console.WriteLine(NumbersLength(a, b));
