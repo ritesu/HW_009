@@ -1,49 +1,16 @@
 ﻿Console.WriteLine("Введите начальное и конечное значения числового ряда");
 int a = int.Parse(Console.ReadLine() ?? "");
 int b = int.Parse(Console.ReadLine() ?? "");
-int c = b - a + 1;
-int[] numbers = new int[c];
 
-void FillNumbers(int[] numbers)
+int SumNumbers(int a, int b)
 {
-    c = a;
-    for (int i = 0; i < numbers.Length; i++)
+    if (a > b)
     {
-        numbers[i] = c;
-        c++;
-        if (c > b)
-        {
-            break;
-        }
+        return 0;
+    }
+    else
+    {
+        return a + SumNumbers(a + 1, b);
     }
 }
-
-void PrintNumbers(int[] numbers)
-{
-    foreach (int i in numbers)
-    {
-        if (i == b)
-        {
-            Console.Write($"{i}.");
-        }
-        else
-        {
-            Console.Write($"{i}, ");
-        }
-    }
-    Console.WriteLine();
-}
-
-void SumNumbers(int[] numbers)
-{
-    c = 0;
-    for (int i = 0; i < numbers.Length; i++)
-    {
-        c = numbers[i] + c;
-    }
-}
-
-FillNumbers(numbers);
-PrintNumbers(numbers);
-SumNumbers(numbers);
-Console.WriteLine($"Сумма чисел от {a} до {b} равна {c}");
+Console.WriteLine($"Сумма чисел от {a} до {b} равна {SumNumbers(a, b)}");
